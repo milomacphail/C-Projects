@@ -2,10 +2,10 @@
 #include <cs50.h>
 
 int main(void){
-    int minutes = get_int();
+    int minutes = get_int("Minutes:");
 
     {
-        printf("Bottles:\i", (minutes * 12) );
+        printf("Bottles:%i\n", (minutes * 12));
     }
 
 }
