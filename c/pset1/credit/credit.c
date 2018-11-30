@@ -14,7 +14,7 @@ int main(void)
 {
     long long card = get_long_long("Please enter a credit card number: ");
     int length = 0;
-    if (card >= MCMIN16 && card <= MCMAX16)
+    if (card >= MIN16 && card <= MAX16)
     {
         printf("VISA OR MASTERCARD\n");
         length = 16;
@@ -65,5 +65,32 @@ int main(void)
     }
     //printf("timesTwo: %i\tnoTimes:%i\n", timesTwo, noTimes);
     int final = timesTwo + noTimes;
+    if (final % 10 == 0)
+    {
+        if (firstDigit == 4)
+        {
+            printf("VISA\n");
+        }
+        else if (firstDigit == 5)
+        {
+            if (secondDigit >= 1 && secondDigit <= 5)
+
+        {
+            printf("MASTERCARD\n");
+        }
+        }
+        else if (firstDigit == 3)
+        {
+            if (secondDigit == 4 || secondDigit == 7)
+            {
+                printf("AMEX\n");
+            }
+        }
+
+    }
+    else
+    {
+        printf("INVALID\n");
+    }
 
 }
