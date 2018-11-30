@@ -1,17 +1,11 @@
 #include <stdio.h>
 #include <cs50.h>
 
-#define MCMAX16 5599999999999999
-#define MCMIN16 5100000000000000
+#define MAX16 5599999999999999
+#define MIN16 4000000000000000
 
-#define VMAX16 4111111111111111
-#define VMIN16 4000000000000000
-
-#define AMMAX115 379999999999999
-#define AMMIN115 370000000000000
-
-#define AMMAX215 349999999999999
-#define AMMIN215 340000000000000
+#define MAX15 379999999999999
+#define MIN15 340000000000000
 
 #define MAX13 4999999999999
 #define MIN13 4000000000000
@@ -22,17 +16,11 @@ int main(void)
     int length = 0;
     if (card >= MCMIN16 && card <= MCMAX16)
     {
-        printf("MASTERCARD\n");
+        printf("VISA OR MASTERCARD\n");
         length = 16;
 
     }
-    else if (card >= VMIN16 && card <= VMAX16)
-    {
-        printf("VISA\n");
-        length = 16;
-
-    }
-    else if ((card >= AMMIN115 && card <= AMMAX115) || (card >= AMMIN215 && card <= AMMAX215))
+    else if (card >= MIN15 && card <= MAX15)
     {
         printf("AMEX\n");
         length = 15;
