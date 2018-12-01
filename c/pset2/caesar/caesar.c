@@ -1,19 +1,35 @@
+//include
 #include <stdio.h>
 #include <cs50.h>
-#include <math.h>
+#include <ctype.h>
+#include <stdlib.h>
 
-int main (argc, argv)
+//key
+int key(int argc, string argv[1])
 {
-    int k = get_int("Please enter ")
-    do
+    //reject inputs with anything other than two arguments
+    if (argc != 2)
     {
-        printf("Please provide acceptable input.");
         return 1;
+        printf("Usage: ./caesar k");
     }
-    while (k != argv[1]);
+    else if
+    {
 
+    //ask user for plaintext input
+       printf("plaintext: ");
+        string plaintext =  get_string();
+        int cipherShift = atoi(argv[1]);
 
-
-
-
+       for (int i = 0, i < strlen(plaintext); i++)
+        {
+            cipherText = ("%c", plaintext[i] + cipherShift);
+            printf(cipherText);
+        }
+    else
+    {
+        cipherText
+    }
+    return cipherText[i] = plaintext[i];
+    }
 }
