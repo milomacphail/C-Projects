@@ -1,30 +1,28 @@
 #include<stdio.h>
 #include<cs50.h>
 #include<string.h>
+#include<ctype.h>
+
 
 
 int main(void){
 
-    string enter = get_string("Please enter your name below: ");
+    string input = get_string();
 
-    int length = strlen(enter);
+    int length = strlen(input);
 
     //for (int first; letter < length; first++)
     //{
     //}
+    printf("%c", toupper(input[0]));
 
-    if (enter[0] != ' ')
-    {
     for(int letter = 0; letter<length; letter++){
-        if (enter[letter] == ' '){
-            if (letter + 1 < length && enter[letter + 1] != ' ')
-            {
-                printf("This is %c%c.", enter[0], enter[letter + 1]);
-            }
-        }
+       if (input[letter] == ' ' && input[letter + 1] != ' ')
+       {
+            printf("%c", toupper(input[letter + 1]));
     }
+
+}
+    printf("\n");
+}
     //printf("Hello, %s.\n", enter );
-
-}
-
-}
