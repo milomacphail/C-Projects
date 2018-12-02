@@ -1,35 +1,65 @@
-//include
+//included libraries
 #include <stdio.h>
 #include <cs50.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 
-//key
-int key(int argc, string argv[1])
+//Get the Key
+int main(int argc, char *argv[1])
 {
-    //reject inputs with anything other than two arguments
     if (argc != 2)
     {
+
+        printf("Usage: ./caesar k\n");
         return 1;
-        printf("Usage: ./caesar k");
     }
-    else if
+
+    int k = atoi(argv[1]);
+
+    if (k < 0)
     {
+        printf("Use an acceptable key value.\n");
+        return 1;
+    }
 
-    //ask user for plaintext input
-       printf("plaintext: ");
-        string plaintext =  get_string();
-        int cipherShift = atoi(argv[1]);
+//Get the plaintext to encode
+    string p = get_string("plaintext: ");
 
-       for (int i = 0, i < strlen(plaintext); i++)
-        {
-            cipherText = ("%c", plaintext[i] + cipherShift);
-            printf(cipherText);
+//Print cipher text at beginning of each response
+    printf("ciphertext: ");
+        for (int i = 0, length = strlen(p); i < length ; i++)
+            {
+            if (islower(p[i]))
+            {
+
+                printf("%c", (p[i] - 'a' + k) % 26+ 'a');
+
+
+            }
+
+            else if(isupper(p[i]))
+
+            {
+
+                printf("%c", (p[i] - 'A' + k) % 26+ 'A');
+
+
+            }
+
+            else
+
+            {
+                printf("%c", p[i]);
+            }
+
         }
-    else
-    {
-        cipherText
-    }
-    return cipherText[i] = plaintext[i];
-    }
+
+    //Print the ciphertext/exit program
+    printf("\n");
+    return 0;
 }
+//Cipher code c[i] = (p[i-'a' + k)% 26+ 'a' || "A";
+
+
+
