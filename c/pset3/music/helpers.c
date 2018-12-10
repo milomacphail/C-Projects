@@ -15,7 +15,7 @@ int duration(string fraction)
     int x = fraction[0] - '0';
     int y = fraction[2] - '0';
     // return ((8/denominator) * numerator);
-    int duration = ((8 / y) * x);
+    int duration = ((8/y) * x);
     return duration;
 
 }
@@ -27,34 +27,32 @@ int frequency(string note)
      double freq =  0.0;
 
 // Switch operator is much faster for multi-way branching
-    int oct = note[strlen(note)] -'0';
+    int oct = note[strlen(note) -1] -'0';
     switch (note[0])
     {
-        case'C':
-                freq = (440.0 / (pow(2.0, 9.0 / 12.0)));
+        case 'C':
+                freq = 440.0 / (pow(2.0, (9.0 / 12.0)));
             break;
-        case'D':
-                freq = (440.0 / (pow(2.0, 7.0 / 12.0)));
+        case 'D':
+                freq = 440.0 / (pow(2.0, (7.0 / 12.0)));
             break;
-        case'E':
-                freq = (440.0 / (pow(2.0, 5.0 / 12.0)));
+        case 'E':
+                freq = 440.0 / (pow(2.0, (5.0 / 12.0)));
             break;
         case'F':
-                freq = (440.0 / (pow(2.0, 4.0 / 12.0)));
+                freq = 440.0 / (pow(2.0,(4.0 / 12.0)));
             break;
-        case'G':
-                freq = (440.0 / (pow(2.0, 2.0 / 12.0)));
+        case 'G':
+                freq = 440.0 / (pow(2.0, (2.0 / 12.0)));
             break;
-        case'A':
+        case 'A':
                 freq = 440.0;
             break;
-        case'B':
-                freq = (440.0 * (pow(2.0, 2.0 / 12.0)));
+        case 'B':
+                freq = 440.0 * (pow(2.0, (2.0 / 12.0)));
             break;
-        default :
-            return 0;
 
-
+    }
             // Loop to shift oct
             if (oct > 4)
             {
@@ -72,21 +70,19 @@ int frequency(string note)
         }
 
             // adjust to accidental (flat or sharp)
-            if (note[strlen(note) -1] == 'b')
+            if (note[1] == 'b')
             {
             freq /= (pow(2.0, (1.0 / 12.0)));
             }
-            else if (note[strlen(note) -1] == '#')
+            else if (note[1] == '#')
             {
             freq *= (pow(2.0, (1.0 / 12.0)));
             }
-    }
 
     return round(freq);
+
 }
-
-
-// Determines whether a string represents a rest
+// Is a string a rest
 bool is_rest(string s)
 {
 
