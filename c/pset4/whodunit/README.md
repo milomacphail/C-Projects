@@ -50,4 +50,4 @@ Generally, `fseek` sets the file position of a stream to a given offset value. I
 
 ## Whodunit?
 
-TODO
+Professor Plum in the library with the candlestick.

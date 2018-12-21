@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
 
             //if pixel is red, alter take out green and blue;
-               if (triple.rgbtred == 0xff)
+             if (triple.rgbtRed == 0xff)
             {
                 triple.rgbtGreen = 0x00;
                 triple.rgbtBlue = 0xff;
