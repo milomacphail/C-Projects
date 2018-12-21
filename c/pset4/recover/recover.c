@@ -16,15 +16,23 @@ int main(int argc, char* argv[])
     FILE* raw_file = fopen(argv[1], "r");
 
     //create buffer
-    char* buffer = malloc([512]);
+    unsigned char buffer [512];
 
     //jpeg counter
     int counter = 0;
-
-    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] &0xf0 == 0xe0)) === true;
+    printf("Counter %i", counter);
 
     //read in blocks of 512 bytes, checking for jpeg opener
+    while (fread(buffer, 1, 512, raw_file))
+    {
 
-    fread(buffer, 1, 512, raw_file);
+    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+    {
+    printf("OK");
+    }
+    }
+
+
+
 
 }
